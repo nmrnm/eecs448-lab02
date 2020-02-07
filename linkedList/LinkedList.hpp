@@ -114,6 +114,9 @@ bool LinkedList<T>::removeBack()
 		Fix this method
 	*/
 	secondintoLast = m_front;
+	if(secondintoLast == nullptr){
+		return false;
+	}
 	lastNode = secondintoLast->getNext();
 
 	while(lastNode != nullptr){
@@ -121,8 +124,9 @@ bool LinkedList<T>::removeBack()
 		lastNode = lastNode->getNext();
 	}
 	if(lastNode != nullptr){
-		delete lastNode;
+		delete secondintoLast;
 		isRemoved = true;
+		m_size--;
 	}
 	return(isRemoved);
 }
